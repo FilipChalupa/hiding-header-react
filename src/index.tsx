@@ -27,7 +27,7 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 		ReturnType<typeof hidingHeader>
 	>()
 
-	React.useLayoutEffect(() => {
+	React.useEffect(() => {
 		const callbacks = hidingHeader(container.current!)
 		setHidingHeaderCallbacks(callbacks)
 	}, [])
