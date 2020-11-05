@@ -18,7 +18,8 @@
 		"header",
 		"scroll",
 		"detection",
-		"typescript"
+		"typescript",
+		"react"
 	],
 	"author": {
 		"name": "Filip Chalupa",
