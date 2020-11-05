@@ -1,0 +1,52 @@
+{
+	"name": "hiding-header-react",
+	"version": "0.0.0",
+	"description": "Toggles header visibility on scroll.",
+	"main": "./dist/index.js",
+	"module": "./dist/index.es.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"start": "rollup -c -w",
+		"build": "rollup -c",
+		"prepublish": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FilipChalupa/hiding-header-typescript.git"
+	},
+	"keywords": [
+		"header",
+		"scroll",
+		"detection",
+		"typescript"
+	],
+	"author": {
+		"name": "Filip Chalupa",
+		"email": "chalupa.filip@gmail.com",
+		"url": "https://www.npmjs.com/~onset"
+	},
+	"license": "ISC",
+	"prettier": {
+		"semi": false,
+		"singleQuote": true,
+		"trailingComma": "es5",
+		"useTabs": true,
+		"arrowParens": "always"
+	},
+	"dependencies": {
+		"hiding-header": "^0.1.7"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^16.0.0",
+		"@rollup/plugin-node-resolve": "^10.0.0",
+		"prettier": "^2.1.2",
+		"rollup": "^2.33.1",
+		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-typescript2": "^0.29.0",
+		"typescript": "^4.0.5"
+	},
+	"peerDependencies": {
+		"@types/react": "^16.9.55",
+		"react": "17.0.1"
+	}
+}
