@@ -1,5 +1,5 @@
 import { hidingHeader } from 'hiding-header'
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 
 const contextDefault = {
 	run: () => {},
@@ -12,10 +12,15 @@ export const useRunHidingHeader = () => React.useContext(Context).run
 
 export const usePauseHidingHeader = () => React.useContext(Context).pause
 
-export interface HidingHeaderProps {}
+export interface HidingHeaderProps {
+	className?: HTMLAttributes<HTMLDivElement>['className']
+	innerClassName?: HTMLAttributes<HTMLDivElement>['className']
+}
 
 export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	children,
+	className = 'hidingHeader',
+	innerClassName = 'hidingHeader-in',
 }) => {
 	const container = React.useRef<HTMLDivElement>(null)
 	const [hidingHeaderCallbacks, setHidingHeaderCallbacks] = React.useState<
@@ -28,8 +33,8 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	}, [])
 
 	return (
-		<div className="hidingHeader" ref={container}>
-			<div className="hidingHeader-in">
+		<div className={className} ref={container}>
+			<div className={innerClassName}>
 				<Context.Provider
 					value={{
 						run: hidingHeaderCallbacks?.run || contextDefault.run,
