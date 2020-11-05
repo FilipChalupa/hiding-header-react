@@ -35,7 +35,7 @@
 		"arrowParens": "always"
 	},
 	"dependencies": {
-		"hiding-header": "^0.1.7"
+		"hiding-header": "^0.1.8"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^16.0.0",
