@@ -29,6 +29,7 @@ const Header = () => {
 	position: relative;
 	--hidingHeader-height: auto;
 	--hidingHeader-bounds-height: auto;
+	--hidingHeader-animation-offset: 0px;
 	z-index: 10;
 	height: var(--hidingHeader-bounds-height);
 	margin-bottom: calc(
@@ -42,5 +43,7 @@ const Header = () => {
 	position: sticky;
 	top: 0;
 	pointer-events: auto;
+	transition: transform 0.2s;
+	transform: translateY(var(--hidingHeader-animation-offset));
 }
 ```
