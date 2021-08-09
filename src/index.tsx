@@ -1,4 +1,4 @@
-import { hidingHeader } from 'hiding-header'
+import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
 import React, { HTMLAttributes } from 'react'
 
 const contextDefault = {
@@ -18,12 +18,26 @@ export const useHideHidingHeader = () => React.useContext(Context).hide
 export interface HidingHeaderProps {
 	className?: HTMLAttributes<HTMLDivElement>['className']
 	innerClassName?: HTMLAttributes<HTMLDivElement>['className']
+
+	heightPropertyName?: HidingHeaderOptions['heightPropertyName']
+	boundsHeightPropertyName?: HidingHeaderOptions['boundsHeightPropertyName']
+	animationOffsetPropertyName?: HidingHeaderOptions['animationOffsetPropertyName']
+	snap?: HidingHeaderOptions['snap']
+	onHeightChange?: HidingHeaderOptions['onHeightChange']
+	onVisibleHeightChange?: HidingHeaderOptions['onVisibleHeightChange']
 }
 
 export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	children,
 	className = 'hidingHeader',
 	innerClassName = 'hidingHeader-in',
+	// hiding-header options
+	heightPropertyName,
+	boundsHeightPropertyName,
+	animationOffsetPropertyName,
+	snap,
+	onHeightChange,
+	onVisibleHeightChange,
 }) => {
 	const container = React.useRef<HTMLDivElement>(null)
 	const [hidingHeaderCallbacks, setHidingHeaderCallbacks] = React.useState<
@@ -31,7 +45,14 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	>()
 
 	React.useEffect(() => {
-		const callbacks = hidingHeader(container.current!)
+		const callbacks = hidingHeader(container.current!, {
+			heightPropertyName,
+			boundsHeightPropertyName,
+			animationOffsetPropertyName,
+			snap,
+			onHeightChange,
+			onVisibleHeightChange,
+		})
 		setHidingHeaderCallbacks(callbacks)
 	}, [])
 
