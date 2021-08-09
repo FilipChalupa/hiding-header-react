@@ -1,9 +1,9 @@
 import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
 import React, { HTMLAttributes } from 'react'
 
-const Context = React.createContext<undefined | ReturnType<typeof hidingHeader>>(
-	undefined
-)
+const Context = React.createContext<
+	undefined | ReturnType<typeof hidingHeader>
+>(undefined)
 
 export const useHidingHeader = () => React.useContext(Context)
 export const useRunHidingHeader = () => React.useContext(Context)?.run
@@ -21,6 +21,7 @@ export interface HidingHeaderProps {
 	snap?: HidingHeaderOptions['snap']
 	onHeightChange?: HidingHeaderOptions['onHeightChange']
 	onVisibleHeightChange?: HidingHeaderOptions['onVisibleHeightChange']
+	onHomeChange?: HidingHeaderOptions['onHomeChange']
 }
 
 export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
@@ -34,6 +35,7 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	snap,
 	onHeightChange,
 	onVisibleHeightChange,
+	onHomeChange,
 }) => {
 	const container = React.useRef<HTMLDivElement>(null)
 	const [hidingHeaderInstance, setHidingHeaderInstance] = React.useState<
@@ -48,6 +50,7 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 			snap,
 			onHeightChange,
 			onVisibleHeightChange,
+			onHomeChange,
 		})
 		setHidingHeaderInstance(instance)
 	}, [])
