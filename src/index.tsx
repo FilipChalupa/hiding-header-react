@@ -1,15 +1,15 @@
 import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
 import React, { HTMLAttributes } from 'react'
 
-const Context = React.createContext<null | ReturnType<typeof hidingHeader>>(
-	null
+const Context = React.createContext<undefined | ReturnType<typeof hidingHeader>>(
+	undefined
 )
 
 export const useHidingHeader = () => React.useContext(Context)
-export const useRunHidingHeader = () => React.useContext(Context).run
-export const usePauseHidingHeader = () => React.useContext(Context).pause
-export const useRevealHidingHeader = () => React.useContext(Context).reveal
-export const useHideHidingHeader = () => React.useContext(Context).hide
+export const useRunHidingHeader = () => React.useContext(Context)?.run
+export const usePauseHidingHeader = () => React.useContext(Context)?.pause
+export const useRevealHidingHeader = () => React.useContext(Context)?.reveal
+export const useHideHidingHeader = () => React.useContext(Context)?.hide
 
 export interface HidingHeaderProps {
 	className?: HTMLAttributes<HTMLDivElement>['className']
