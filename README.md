@@ -18,32 +18,12 @@ npm install hiding-header-react
 import { HidingHeader } from 'hiding-header-react'
 
 const Header = () => {
-	return <HidingHeader>Put your content here</HidingHeader>
-}
-```
-
-### CSS
-
-```css
-.hidingHeader {
-	position: relative;
-	--hidingHeader-height: auto;
-	--hidingHeader-bounds-height: auto;
-	--hidingHeader-animation-offset: 0px;
-	z-index: 10;
-	height: var(--hidingHeader-bounds-height);
-	margin-bottom: calc(
-		var(--hidingHeader-height) - var(--hidingHeader-bounds-height)
-	);
-	pointer-events: none;
-}
-
-.hidingHeader-in {
-	position: relative;
-	position: sticky;
-	top: 0;
-	pointer-events: auto;
-	transition: transform 0.2s;
-	transform: translateY(var(--hidingHeader-animation-offset));
+	return (
+		<HidingHeader>
+			<div style={{ backgroundColor: 'black', color: 'white', padding: '1em' }}>
+				Put your content here
+			</div>
+		</HidingHeader>
+	)
 }
 ```
