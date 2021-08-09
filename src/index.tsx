@@ -1,15 +1,11 @@
 import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
 import React, { HTMLAttributes } from 'react'
 
-const contextDefault = {
-	run: () => {},
-	pause: () => {},
-	reveal: () => {},
-	hide: () => {},
-}
+const Context = React.createContext<null | ReturnType<typeof hidingHeader>>(
+	null
+)
 
-const Context = React.createContext(contextDefault)
-
+export const useHidingHeader = () => React.useContext(Context)
 export const useRunHidingHeader = () => React.useContext(Context).run
 export const usePauseHidingHeader = () => React.useContext(Context).pause
 export const useRevealHidingHeader = () => React.useContext(Context).reveal
@@ -40,12 +36,12 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	onVisibleHeightChange,
 }) => {
 	const container = React.useRef<HTMLDivElement>(null)
-	const [hidingHeaderCallbacks, setHidingHeaderCallbacks] = React.useState<
+	const [hidingHeaderInstance, setHidingHeaderInstance] = React.useState<
 		ReturnType<typeof hidingHeader>
 	>()
 
 	React.useEffect(() => {
-		const callbacks = hidingHeader(container.current!, {
+		const instance = hidingHeader(container.current!, {
 			heightPropertyName,
 			boundsHeightPropertyName,
 			animationOffsetPropertyName,
@@ -53,20 +49,13 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 			onHeightChange,
 			onVisibleHeightChange,
 		})
-		setHidingHeaderCallbacks(callbacks)
+		setHidingHeaderInstance(instance)
 	}, [])
 
 	return (
 		<div className={className} ref={container}>
 			<div className={innerClassName}>
-				<Context.Provider
-					value={{
-						run: hidingHeaderCallbacks?.run || contextDefault.run,
-						pause: hidingHeaderCallbacks?.pause || contextDefault.pause,
-						reveal: hidingHeaderCallbacks?.reveal || contextDefault.reveal,
-						hide: hidingHeaderCallbacks?.hide || contextDefault.hide,
-					}}
-				>
+				<Context.Provider value={hidingHeaderInstance}>
 					{children}
 				</Context.Provider>
 			</div>
