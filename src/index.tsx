@@ -1,6 +1,7 @@
 import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
 import {
 	createContext,
+	ElementType,
 	HTMLAttributes,
 	useContext,
 	useEffect,
@@ -21,6 +22,7 @@ export const useHideHidingHeader = () => useContext(Context)?.hide
 export interface HidingHeaderProps {
 	className?: HTMLAttributes<HTMLDivElement>['className']
 	innerClassName?: HTMLAttributes<HTMLDivElement>['className']
+	component?: ElementType
 
 	heightPropertyName?: HidingHeaderOptions['heightPropertyName']
 	boundsHeightPropertyName?: HidingHeaderOptions['boundsHeightPropertyName']
@@ -35,6 +37,7 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	children,
 	className = 'hidingHeader',
 	innerClassName = 'hidingHeader-in',
+	component: Tag = 'div',
 	// hiding-header options
 	heightPropertyName,
 	boundsHeightPropertyName,
@@ -63,12 +66,12 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	}, [])
 
 	return (
-		<div className={className} ref={container}>
+		<Tag className={className} ref={container}>
 			<div className={innerClassName}>
 				<Context.Provider value={hidingHeaderInstance}>
 					{children}
 				</Context.Provider>
 			</div>
-		</div>
+		</Tag>
 	)
 }

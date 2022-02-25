@@ -20,9 +20,11 @@ import { HidingHeader } from 'hiding-header-react'
 const Header = () => {
 	return (
 		<HidingHeader>
-			<div style={{ backgroundColor: 'black', color: 'white', padding: '1em' }}>
+			<header
+				style={{ backgroundColor: 'black', color: 'white', padding: '1em' }}
+			>
 				Put your content here
-			</div>
+			</header>
 		</HidingHeader>
 	)
 }
