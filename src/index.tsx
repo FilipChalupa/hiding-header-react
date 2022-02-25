@@ -1,15 +1,22 @@
 import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
-import React, { HTMLAttributes } from 'react'
+import {
+	createContext,
+	HTMLAttributes,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+} from 'react'
 
-const Context = React.createContext<
-	undefined | ReturnType<typeof hidingHeader>
->(undefined)
+const Context = createContext<undefined | ReturnType<typeof hidingHeader>>(
+	undefined
+)
 
-export const useHidingHeader = () => React.useContext(Context)
-export const useRunHidingHeader = () => React.useContext(Context)?.run
-export const usePauseHidingHeader = () => React.useContext(Context)?.pause
-export const useRevealHidingHeader = () => React.useContext(Context)?.reveal
-export const useHideHidingHeader = () => React.useContext(Context)?.hide
+export const useHidingHeader = () => useContext(Context)
+export const useRunHidingHeader = () => useContext(Context)?.run
+export const usePauseHidingHeader = () => useContext(Context)?.pause
+export const useRevealHidingHeader = () => useContext(Context)?.reveal
+export const useHideHidingHeader = () => useContext(Context)?.hide
 
 export interface HidingHeaderProps {
 	className?: HTMLAttributes<HTMLDivElement>['className']
@@ -37,12 +44,12 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	onVisibleHeightChange,
 	onHomeChange,
 }) => {
-	const container = React.useRef<HTMLDivElement>(null)
-	const [hidingHeaderInstance, setHidingHeaderInstance] = React.useState<
+	const container = useRef<HTMLDivElement>(null)
+	const [hidingHeaderInstance, setHidingHeaderInstance] = useState<
 		ReturnType<typeof hidingHeader>
 	>()
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const instance = hidingHeader(container.current!, {
 			heightPropertyName,
 			boundsHeightPropertyName,
