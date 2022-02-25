@@ -1,4 +1,4 @@
-# Hiding Header React [![npm](https://img.shields.io/npm/v/hiding-header-react.svg)](https://www.npmjs.com/package/hiding-header-react) [![Dependencies](https://img.shields.io/david/FilipChalupa/hiding-header-react.svg)](https://www.npmjs.com/package/hiding-header-react?activeTab=dependencies) ![npm type definitions](https://img.shields.io/npm/types/hiding-header-react.svg)
+# Hiding Header React [![npm](https://img.shields.io/npm/v/hiding-header-react.svg)](https://www.npmjs.com/package/hiding-header-react) ![npm type definitions](https://img.shields.io/npm/types/hiding-header-react.svg)
 
 Toggles header visibility on scroll. [Demo](https://filipchalupa.cz/hiding-header/demo).
 
