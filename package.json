@@ -27,13 +27,6 @@
 		"url": "https://www.npmjs.com/~onset"
 	},
 	"license": "ISC",
-	"prettier": {
-		"semi": false,
-		"singleQuote": true,
-		"trailingComma": "es5",
-		"useTabs": true,
-		"arrowParens": "always"
-	},
 	"dependencies": {
 		"hiding-header": "^0.8.0"
 	},
