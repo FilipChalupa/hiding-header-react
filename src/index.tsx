@@ -3,6 +3,7 @@ import {
 	createContext,
 	ElementType,
 	HTMLAttributes,
+	ReactNode,
 	useContext,
 	useEffect,
 	useRef,
@@ -20,6 +21,7 @@ export const useRevealHidingHeader = () => useContext(Context)?.reveal
 export const useHideHidingHeader = () => useContext(Context)?.hide
 
 export interface HidingHeaderProps {
+	children?: ReactNode
 	className?: HTMLAttributes<HTMLDivElement>['className']
 	innerClassName?: HTMLAttributes<HTMLDivElement>['className']
 	component?: ElementType
