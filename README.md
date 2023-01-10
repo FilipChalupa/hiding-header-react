@@ -1,6 +1,6 @@
 # Hiding Header React [![npm](https://img.shields.io/npm/v/hiding-header-react.svg)](https://www.npmjs.com/package/hiding-header-react) ![npm type definitions](https://img.shields.io/npm/types/hiding-header-react.svg)
 
-Toggles header visibility on scroll. [Demo](https://filipchalupa.cz/hiding-header/demo).
+Toggles header visibility on scroll. Try interactive [CodeSandbox demo](https://codesandbox.io/s/react-hiding-header-xk8rlb?file=/src/App.js).
 
 ![UI example](https://raw.githubusercontent.com/FilipChalupa/hiding-header/HEAD/screencast.gif)
 
