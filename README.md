@@ -30,6 +30,57 @@ const Header = () => {
 }
 ```
 
-### CSS:
+### CSS
 
 Import `node_modules/hiding-header/dist/style.css` to your CSS. It's few lines of code. You can alternatively copy paste it and adjust things like `z-index` to your needs.
+
+### Advanced use
+
+`<HidingHeader>` accepts several optional props.
+
+| property name                 | default                             | description                                                               |
+| ----------------------------- | ----------------------------------- | ------------------------------------------------------------------------- |
+| `className`                   | `'hidingHeader'`                    | Wrapper class attribute.                                                  |
+| `innerClassName`              | `'hidingHeader-in'`                 | Offspring class name.                                                     |
+| `component`                   | `div`                               | Wrapper tag name.                                                         |
+| `heightPropertyName`          | `'--hidingHeader-height'`           | CSS property name.                                                        |
+| `boundsHeightPropertyName`    | `'--hidingHeader-bounds-height'`    | CSS property name.                                                        |
+| `animationOffsetPropertyName` | `'--hidingHeader-animation-offset'` | CSS property name.                                                        |
+| `snap`                        | `true`                              | Prevents only half of the header being visible when user stops scrolling. |
+| `onHeightChange`              | noop                                | Callback.                                                                 |
+| `onVisibleHeightChange`       | noop                                | Callback.                                                                 |
+| `onHomeChange`                | noop                                | Callback which calls back when header enters or leaves initial position.  |
+
+#### Example
+
+Changes header background to opaque when sticking / not home.
+
+```jsx
+const MyApp = () => {
+	const [isHome, setIsHome] = useState(true)
+
+	return (
+		<>
+			<HidingHeader
+				onHomeChange={(isHomeNew) => {
+					setIsHome(isHomeNew)
+				}}
+			>
+				<div style={{ backgroundColor: isHome ? 'transparent' : 'white' }}>
+					Menu
+				</div>
+			</HidingHeader>
+		</>
+	)
+}
+```
+
+For runtime manipulation you can use hooks.
+
+| hook name               | description                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| `useHidingHeader`       | Returns object with multiple functions to obtain or manipulate header state. |
+| `usePauseHidingHeader`  | Returns function. When called won't react to scroll.                         |
+| `useRunHidingHeader`    | Returns function. When called will react to scroll again.                    |
+| `useRevealHidingHeader` | Returns function. When called will force header to show.                     |
+| `useHideHidingHeader`   | Returns function. When called will force header to hide.                     |
