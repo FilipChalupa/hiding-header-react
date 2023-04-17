@@ -65,6 +65,10 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 			onHomeChange,
 		})
 		setHidingHeaderInstance(instance)
+
+		return () => {
+			instance.destroy()
+		}
 	}, [])
 
 	return (
