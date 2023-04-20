@@ -16,6 +16,7 @@ npm install hiding-header-react
 
 ```jsx
 import { HidingHeader } from 'hiding-header-react'
+import 'hiding-header/dist/style.css'
 
 const Header = () => {
 	return (
@@ -32,7 +33,7 @@ const Header = () => {
 
 ### CSS
 
-Import `node_modules/hiding-header/dist/style.css` to your CSS. It's few lines of code. You can alternatively copy paste it and adjust things like `z-index` to your needs.
+Import `hiding-header/dist/style.css` to your CSS. It's few lines of code. You can alternatively copy paste it and adjust things like `z-index` to your needs.
 
 ### Advanced use
 
