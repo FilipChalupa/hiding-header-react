@@ -61,17 +61,15 @@ const MyApp = () => {
 	const [isHome, setIsHome] = useState(true)
 
 	return (
-		<>
-			<HidingHeader
-				onHomeChange={(isHomeNew) => {
-					setIsHome(isHomeNew)
-				}}
-			>
-				<div style={{ backgroundColor: isHome ? 'transparent' : 'white' }}>
-					Menu
-				</div>
-			</HidingHeader>
-		</>
+		<HidingHeader
+			onHomeChange={(isHomeNew) => {
+				setIsHome(isHomeNew)
+			}}
+		>
+			<div style={{ backgroundColor: isHome ? 'transparent' : 'white' }}>
+				Menu
+			</div>
+		</HidingHeader>
 	)
 }
 ```
