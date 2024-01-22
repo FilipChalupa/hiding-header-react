@@ -2,8 +2,8 @@
 	"name": "hiding-header-react",
 	"version": "0.6.6",
 	"description": "Toggles header visibility on scroll.",
+	"type": "module",
 	"main": "./dist/index.js",
-	"module": "./dist/index.es.js",
 	"types": "./dist/index.d.ts",
 	"scripts": {
 		"start": "rollup -c -w",
@@ -34,13 +34,14 @@
 		"@rollup/plugin-commonjs": "^16.0.0",
 		"@rollup/plugin-node-resolve": "^10.0.0",
 		"@types/react": "^18.0.10",
-		"prettier": "^2.1.2",
+		"prettier": "^3.2.4",
 		"react": "^18.1.0",
-		"rollup": "^2.33.1",
+		"rollup": "^4.9.6",
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
+		"rollup-plugin-preserve-directives": "^0.3.1",
 		"rollup-plugin-typescript2": "^0.29.0",
-		"typescript": "^4.0.5"
+		"typescript": "^5.3.3"
 	},
 	"peerDependencies": {
 		"react": "16 || 17 || 18"

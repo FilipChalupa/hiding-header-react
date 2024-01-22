@@ -1,3 +1,5 @@
+'use client'
+
 import { hidingHeader, HidingHeaderOptions } from 'hiding-header'
 import {
 	createContext,
@@ -11,7 +13,7 @@ import {
 } from 'react'
 
 const Context = createContext<undefined | ReturnType<typeof hidingHeader>>(
-	undefined
+	undefined,
 )
 
 export const useHidingHeader = () => useContext(Context)
@@ -50,9 +52,8 @@ export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
 	onHomeChange,
 }) => {
 	const container = useRef<HTMLDivElement>(null)
-	const [hidingHeaderInstance, setHidingHeaderInstance] = useState<
-		ReturnType<typeof hidingHeader>
-	>()
+	const [hidingHeaderInstance, setHidingHeaderInstance] =
+		useState<ReturnType<typeof hidingHeader>>()
 
 	useEffect(() => {
 		const instance = hidingHeader(container.current!, {
