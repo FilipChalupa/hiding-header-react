@@ -1,6 +1,6 @@
 {
 	"name": "hiding-header-react",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Toggles header visibility on scroll.",
 	"type": "module",
 	"main": "./dist/index.js",
