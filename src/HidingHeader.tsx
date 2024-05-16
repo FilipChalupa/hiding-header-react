@@ -10,6 +10,7 @@ import {
 	useEffect,
 	useRef,
 	useState,
+	type FunctionComponent,
 } from 'react'
 
 const Context = createContext<undefined | ReturnType<typeof hidingHeader>>(
@@ -37,7 +38,7 @@ export interface HidingHeaderProps {
 	onHomeChange?: HidingHeaderOptions['onHomeChange']
 }
 
-export const HidingHeader: React.FunctionComponent<HidingHeaderProps> = ({
+export const HidingHeader: FunctionComponent<HidingHeaderProps> = ({
 	children,
 	className = 'hidingHeader',
 	innerClassName = 'hidingHeader-in',
