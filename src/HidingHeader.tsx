@@ -32,6 +32,7 @@ export interface HidingHeaderProps {
 	heightPropertyName?: HidingHeaderOptions['heightPropertyName']
 	boundsHeightPropertyName?: HidingHeaderOptions['boundsHeightPropertyName']
 	animationOffsetPropertyName?: HidingHeaderOptions['animationOffsetPropertyName']
+	visibleHeightPropertyName?: HidingHeaderOptions['visibleHeightPropertyName']
 	snap?: HidingHeaderOptions['snap']
 	onHeightChange?: HidingHeaderOptions['onHeightChange']
 	onVisibleHeightChange?: HidingHeaderOptions['onVisibleHeightChange']
@@ -47,6 +48,7 @@ export const HidingHeader: FunctionComponent<HidingHeaderProps> = ({
 	heightPropertyName,
 	boundsHeightPropertyName,
 	animationOffsetPropertyName,
+	visibleHeightPropertyName,
 	snap,
 	onHeightChange,
 	onVisibleHeightChange,
@@ -61,6 +63,7 @@ export const HidingHeader: FunctionComponent<HidingHeaderProps> = ({
 			heightPropertyName,
 			boundsHeightPropertyName,
 			animationOffsetPropertyName,
+			visibleHeightPropertyName,
 			snap,
 			onHeightChange,
 			onVisibleHeightChange,

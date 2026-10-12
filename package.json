@@ -28,7 +28,7 @@
 	},
 	"license": "ISC",
 	"dependencies": {
-		"hiding-header": "^0.9.1"
+		"hiding-header": "^0.10.0"
 	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^16.0.0",

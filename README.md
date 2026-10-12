@@ -39,18 +39,19 @@ Import `hiding-header/dist/style.css` to your CSS. It's few lines of code. You c
 
 `<HidingHeader>` accepts several optional props.
 
-| property name                 | default                             | description                                                               |
-| ----------------------------- | ----------------------------------- | ------------------------------------------------------------------------- |
-| `className`                   | `'hidingHeader'`                    | Wrapper class attribute.                                                  |
-| `innerClassName`              | `'hidingHeader-in'`                 | Offspring class name.                                                     |
-| `component`                   | `div`                               | Wrapper tag name.                                                         |
-| `heightPropertyName`          | `'--hidingHeader-height'`           | CSS property name.                                                        |
-| `boundsHeightPropertyName`    | `'--hidingHeader-bounds-height'`    | CSS property name.                                                        |
-| `animationOffsetPropertyName` | `'--hidingHeader-animation-offset'` | CSS property name.                                                        |
-| `snap`                        | `true`                              | Prevents only half of the header being visible when user stops scrolling. |
-| `onHeightChange`              | noop                                | Callback.                                                                 |
-| `onVisibleHeightChange`       | noop                                | Callback.                                                                 |
-| `onHomeChange`                | noop                                | Callback which calls back when header enters or leaves initial position.  |
+| property name                 | default                             | description                                                                                                                   |
+| ----------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `className`                   | `'hidingHeader'`                    | Wrapper class attribute.                                                                                                      |
+| `innerClassName`              | `'hidingHeader-in'`                 | Offspring class name.                                                                                                         |
+| `component`                   | `div`                               | Wrapper tag name.                                                                                                             |
+| `heightPropertyName`          | `'--hidingHeader-height'`           | CSS property name.                                                                                                            |
+| `boundsHeightPropertyName`    | `'--hidingHeader-bounds-height'`    | CSS property name.                                                                                                            |
+| `animationOffsetPropertyName` | `'--hidingHeader-animation-offset'` | CSS property name.                                                                                                            |
+| `visibleHeightPropertyName`   | `undefined`                         | CSS property name set on the parent element with the visible header height, e.g. for content sticking right below the header. |
+| `snap`                        | `true`                              | Prevents only half of the header being visible when user stops scrolling.                                                     |
+| `onHeightChange`              | noop                                | Callback.                                                                                                                     |
+| `onVisibleHeightChange`       | noop                                | Callback.                                                                                                                     |
+| `onHomeChange`                | noop                                | Callback which calls back when header enters or leaves initial position.                                                      |
 
 #### Example
 
