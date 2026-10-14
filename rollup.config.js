@@ -1,7 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+import { rmSync } from 'fs'
 import path from 'path'
-import del from 'rollup-plugin-delete'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import preserveDirectives from 'rollup-plugin-preserve-directives'
 import typescript from 'rollup-plugin-typescript2'
@@ -18,8 +18,17 @@ export default {
 		preserveModules: true,
 	},
 	external: ['react', 'hiding-header'],
+	onwarn(warning, warn) {
+		// Directives are kept by preserveDirectives()
+		if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return
+		warn(warning)
+	},
 	plugins: [
-		del({ targets: path.parse(packageJson.main).dir + '/*' }),
+		{
+			name: 'clean',
+			buildStart: () =>
+				rmSync(outputDirectory, { recursive: true, force: true }),
+		},
 		peerDepsExternal(),
 		resolve(),
 		commonjs(),
