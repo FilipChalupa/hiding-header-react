@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pages: write
       id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,5 +30,14 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Build Storybook
+        run: npm run build-storybook
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: storybook-static
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
       - name: Stage publish to npm
         run: npm stage publish --access public --provenance

@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Type check
-        run: npx tsc --noEmit
+        run: |
+          npx tsc --noEmit
+          npx tsc -p stories
       - name: Build
         run: npm run build
+      - name: Build Storybook
+        run: npm run build-storybook
