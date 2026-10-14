@@ -1,6 +1,6 @@
 # Hiding Header React [![npm](https://img.shields.io/npm/v/hiding-header-react.svg)](https://www.npmjs.com/package/hiding-header-react) ![npm type definitions](https://img.shields.io/npm/types/hiding-header-react.svg)
 
-Toggles header visibility on scroll. Try interactive [CodeSandbox demo](https://codesandbox.io/s/react-hiding-header-xk8rlb?file=/src/App.js).
+Toggles header visibility on scroll. Try the interactive [Storybook demo](https://filipchalupa.cz/hiding-header-react/).
 
 ![UI example](https://raw.githubusercontent.com/FilipChalupa/hiding-header/HEAD/screencast.gif)
 
@@ -74,6 +74,32 @@ const MyApp = () => {
 	)
 }
 ```
+
+#### Content sticking below the header
+
+Only part of a header hides, and the rest stays pinned? Put the part that hides into `<HidingHeader>` and the rest after it as a regular sticky element. With `visibleHeightPropertyName` the visible height of the header is kept in a CSS property on the parent element, so the sticky part follows right below it.
+
+```jsx
+const MyApp = () => {
+	return (
+		<>
+			<HidingHeader visibleHeightPropertyName="--hidingHeader-visible-height">
+				<header>Hides on scroll</header>
+			</HidingHeader>
+			<nav
+				style={{
+					position: 'sticky',
+					top: 'var(--hidingHeader-visible-height, 0px)',
+				}}
+			>
+				Always stays
+			</nav>
+		</>
+	)
+}
+```
+
+#### Hooks
 
 For runtime manipulation you can use hooks.
 

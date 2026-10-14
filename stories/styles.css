@@ -1,0 +1,60 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 1em;
+	align-items: center;
+	padding: 1em;
+	background-color: #222;
+	color: #fff;
+	transition: background-color 0.3s;
+}
+
+.header.is-home {
+	background-color: transparent;
+	color: #222;
+}
+
+.header a {
+	color: inherit;
+}
+
+.header-title {
+	margin: 0;
+	font-size: 1.25em;
+}
+
+.tabs {
+	position: sticky;
+	top: var(--hidingHeader-visible-height, 0px);
+	z-index: 5;
+	display: flex;
+	gap: 1em;
+	padding: 0.75em 1em;
+	background-color: #ddd;
+}
+
+.content {
+	max-width: 40em;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+.controls {
+	position: fixed;
+	right: 1em;
+	bottom: 1em;
+	z-index: 20;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	padding: 0.75em;
+	border-radius: 0.5em;
+	background-color: #fff;
+	box-shadow: 0 0.25em 1em rgba(0, 0, 0, 0.25);
+}
